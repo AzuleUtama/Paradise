@@ -188,7 +188,7 @@
 		new /obj/item/grenade/chem_grenade/saringas(src)
 
 /obj/item/storage/box/syndie_kit/bioterror
-	name = "bioterror syringe box"
+	name = "Bioterror syringe box"
 
 	New()
 		..()
@@ -200,6 +200,19 @@
 		new /obj/item/reagent_containers/syringe/bioterror(src)
 		new /obj/item/reagent_containers/syringe/bioterror(src)
 		return
+
+/obj/item/storage/box/syndie_kit/tranq
+	name = "Tranquilizer syringe box"
+
+/obj/item/storage/box/syndie_kit/tranq/New()
+	..()
+	new /obj/item/reagent_containers/syringe/tranq(src)
+	new /obj/item/reagent_containers/syringe/tranq(src)
+	new /obj/item/reagent_containers/syringe/tranq(src)
+	new /obj/item/reagent_containers/syringe/tranq(src)
+	new /obj/item/reagent_containers/syringe/tranq(src)
+	new /obj/item/reagent_containers/syringe/tranq(src)
+	new /obj/item/reagent_containers/syringe/tranq(src)
 
 /obj/item/storage/box/syndie_kit/caneshotgun
 	name = "cane gun kit"

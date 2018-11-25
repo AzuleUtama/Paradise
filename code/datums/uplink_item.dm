@@ -541,11 +541,19 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 
 /datum/uplink_item/ammo/bioterror
 	name = "Box of Bioterror Syringes"
-	desc = "A box full of preloaded syringes, containing various chemicals that seize up the victim's motor and broca system , making it impossible for them to move or speak while in their system."
+	desc = "A box full of preloaded syringes, containing chemicals that will cause the victim to first pass out before slowly dealing a lethal amount of radiation damage."
 	reference = "BTS"
 	item = /obj/item/storage/box/syndie_kit/bioterror
 	cost = 5
 	gamemodes = list(/datum/game_mode/nuclear)
+
+/datum/uplink_item/ammo/tranqdarts
+	name = "Box of Tranquilizer Syringes"
+	desc = "A box full of preloaded syringes, containing various chemicals that seize up the victim's motor and broca system, making it impossible for them to move or speak while in their system."
+	reference = "TRQ"
+	item = /obj/item/storage/box/syndie_kit/tranq
+	cost = 4
+	excludefrom = list(/datum/game_mode/nuclear)
 
 /datum/uplink_item/dangerous/saringrenades
 	name = "Sarin Gas Grenades"

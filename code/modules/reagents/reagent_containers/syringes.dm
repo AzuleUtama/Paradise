@@ -319,6 +319,11 @@
 	list_reagents = list("insulin" = 15)
 
 /obj/item/reagent_containers/syringe/bioterror
-	name = "bioterror syringe"
+	name = "Bioterror syringe"
+	desc = "A syringe containing both paralyzing and lethal reagents."
+	list_reagents = list("polonium" = 5, "sodium_thiopental" = 10)
+
+/obj/item/reagent_containers/syringe/tranq
+	name = "Tranquilizer syringe"
 	desc = "Contains several paralyzing reagents."
 	list_reagents = list("neurotoxin" = 5, "capulettium_plus" = 5, "sodium_thiopental" = 5)
