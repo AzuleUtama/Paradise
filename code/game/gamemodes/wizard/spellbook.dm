@@ -523,6 +523,9 @@
 
 /obj/item/spellbook/proc/initialize()
 	var/entry_types = subtypesof(/datum/spellbook_entry) - /datum/spellbook_entry/item - /datum/spellbook_entry/summon
+	var/player_count = GLOB.player_list.len
+	var/players_per_risk = 30
+	var/risk	// This determines how many spell points to give depending on player count
 	for(var/T in entry_types)
 		var/datum/spellbook_entry/E = new T
 		if(E.IsAvailible())
@@ -531,6 +534,9 @@
 		else
 			qdel(E)
 	tab = categories[1]
+	risk = max(round(player_count/players_per_risk, 1), 1)
+	risk--	// Needs to be at least double the players per risk value to start giving more charges
+	uses += risk
 
 /obj/item/spellbook/New()
 	..()
