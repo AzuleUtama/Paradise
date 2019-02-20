@@ -34,7 +34,8 @@
 
 	allowed_tools = list(
 	/obj/item/bonegel = 100,	\
-	/obj/item/screwdriver = 90
+	/obj/item/screwdriver = 90,	\
+	/obj/item/stack/tape_roll = 99
 	)
 	can_infect = 1
 	blood_level = 1
@@ -144,7 +145,8 @@
 
 	allowed_tools = list(
 	/obj/item/bonegel = 100,	\
-	/obj/item/screwdriver = 90
+	/obj/item/screwdriver = 90,	\
+	/obj/item/stack/tape_roll = 10
 	)
 	can_infect = 1
 	blood_level = 1

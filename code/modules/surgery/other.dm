@@ -62,7 +62,8 @@
 	name = "mend internal bleeding"
 	allowed_tools = list(
 	/obj/item/FixOVein = 100, \
-	/obj/item/stack/cable_coil = 90
+	/obj/item/stack/cable_coil = 90,	\
+	/obj/item/stack/tape_roll = 10
 	)
 	can_infect = 1
 	blood_level = 1
