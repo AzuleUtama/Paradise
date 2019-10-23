@@ -416,7 +416,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	name = "Energized Fire Axe"
 	desc = "A fire axe with a massive electrical charge built into it. It can release this charge on its first victim and will be rather plain after that."
 	reference = "EFA"
-	item = /obj/item/twohanded/energizedfireaxe
+	item = /obj/item/twohanded/fireaxe/energized
 	cost = 10
 	job = list("Life Support Specialist")
 

@@ -185,19 +185,35 @@
 	max_integrity = 200
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 30)
 	resistance_flags = FIRE_PROOF
+	// Stuff for energized version
+	var/energized = FALSE
+	var/charged = FALSE
 
 /obj/item/twohanded/fireaxe/update_icon()  //Currently only here to fuck with the on-mob icons.
-	icon_state = "fireaxe[wielded]"
+	if(wielded && energized)
+		icon_state = "fireaxe2"
+	else
+		icon_state = "fireaxe[wielded]"
 	..()
 
 /obj/item/twohanded/fireaxe/afterattack(atom/A, mob/user, proximity)
 	if(!proximity)
 		return
-	if(wielded) //destroys windows and grilles in one hit
+	if(wielded)
+		if(isliving(A) && energized && charged)
+			var/mob/living/Z = A
+			Z.take_organ_damage(0, 30)
+			user.visible_message("<span class='danger'>[user] slams the charged axe into [Z.name] with all [user.p_their()] might!</span>")
+			playsound(loc, 'sound/magic/lightningbolt.ogg', 5, 1)
+			do_sparks(1, 1, src)
+			charged = FALSE
+
 		if(istype(A, /obj/structure/window) || istype(A, /obj/structure/grille))
 			var/obj/structure/W = A
 			W.obj_destruction("fireaxe")
-
+			if(energized && !charged && prob(20))
+				charged = TRUE
+				user.visible_message("<span class='notice'>The axe starts to emit an electric buzz!</span>")
 
 /obj/item/twohanded/fireaxe/boneaxe  // Blatant imitation of the fireaxe, but made out of bone.
 	icon_state = "bone_axe0"
@@ -208,6 +224,12 @@
 /obj/item/twohanded/fireaxe/boneaxe/update_icon()
 	icon_state = "bone_axe[wielded]"
 
+/obj/item/twohanded/fireaxe/energized	// Atmos traitor fireaxe
+	desc = "Truly, the weapon of a madman. Who would think to fight fire with an axe? The blade seems to be sparking slightly."
+	energized = TRUE
+	charged = TRUE
+	force_wielded = 30
+	armour_penetration = 20
 /*
  * Double-Bladed Energy Swords - Cheridan
  */
@@ -751,57 +773,6 @@
 				Z.ex_act(2)
 				charged = 3
 				playsound(user, 'sound/weapons/marauder.ogg', 50, 1)
-
-// Energized Fire axe
-/obj/item/twohanded/energizedfireaxe
-	name = "energized fire axe"
-	desc = "Someone with a love for fire axes decided to turn one into a single-charge energy weapon. Seems excessive."
-	icon_state = "fireaxe0"
-	force = 5
-	throwforce = 15
-	sharp = TRUE
-	w_class = WEIGHT_CLASS_HUGE
-	armour_penetration = 20
-	slot_flags = SLOT_BACK
-	force_unwielded  = 5
-	force_wielded = 30
-	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
-	hitsound = 'sound/weapons/bladeslice.ogg'
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 30)
-	var/charged = 1
-
-/obj/item/twohanded/energizedfireaxe/update_icon()
-	if(wielded)
-		icon_state = "fireaxe2"
-	else
-		icon_state = "fireaxe0"
-	..()
-
-/obj/item/twohanded/energizedfireaxe/afterattack(atom/A, mob/user, proximity)
-	if(!proximity)
-		return
-	if(wielded)
-		if(isliving(A))
-			var/mob/living/Z = A
-			if(charged)
-				charged--
-				Z.take_organ_damage(0, 30)
-				user.visible_message("<span class='danger'>[user] slams the charged axe into [Z.name] with all [user.p_their()] might!</span>")
-				playsound(loc, 'sound/magic/lightningbolt.ogg', 5, 1)
-				do_sparks(1, 1, src)
-
-		if(A && wielded && (istype(A, /obj/structure/window) || istype(A, /obj/structure/grille)))
-			if(istype(A, /obj/structure/window))
-				var/obj/structure/window/W = A
-				W.deconstruct(FALSE)
-				if(prob(4))
-					charged++
-					user.visible_message("<span class='notice'>The axe starts to emit an electric buzz!</span>")
-			else
-				qdel(A)
-				if(prob(4))
-					charged++
-					user.visible_message("<span class='notice'>The axe starts to emit an electric buzz!</span>")
 
 /obj/item/twohanded/pitchfork
 	icon_state = "pitchfork0"
