@@ -14,12 +14,12 @@
 			new /obj/item/storage/fancy/cigarettes/cigpack_syndicate(src) // 2TC
 			new /obj/item/flashlight/emp(src) // 2TC
 			new /obj/item/clothing/glasses/hud/security/chameleon(src) // 2TC
-			new /obj/item/chameleon(src) // 8TC
+			new /obj/item/chameleon(src) // 7TC
 			return
 
 		if("thief")	// 39TC
 			new /obj/item/gun/energy/kinetic_accelerator/crossbow(src) // 12TC
-			new /obj/item/chameleon(src) // 8TC
+			new /obj/item/chameleon(src) // 7TC
 			new /obj/item/clothing/glasses/chameleon/thermal(src) // 6TC
 			new /obj/item/clothing/gloves/color/black/thief(src) // 6TC
 			new /obj/item/card/id/syndicate(src) // 2TC
@@ -28,7 +28,7 @@
 			new /obj/item/encryptionkey/syndicate(src) // 2TC
 			return
 
-		if("bond") // 36TC + one 0TC
+		if("bond") // 32TC + two 0TC
 			new /obj/item/gun/projectile/automatic/pistol(src) // 4TC
 			new /obj/item/suppressor(src) // 1TC
 			new /obj/item/ammo_box/magazine/m10mm(src)  // 1TC
@@ -38,19 +38,17 @@
 			new /obj/item/clothing/suit/storage/lawyer/blackjacket/armored(src) // 0TC
 			new /obj/item/encryptionkey/syndicate(src) // 2TC
 			new /obj/item/reagent_containers/food/drinks/drinkingglass/alliescocktail(src)	// 0TC
-			new /obj/item/dnascrambler(src) // 4TC
 			new /obj/item/storage/box/syndie_kit/emp(src) // 2TC
 			new /obj/item/CQC_manual(src) // 13TC
 			new /obj/item/door_remote/omni/access_tuner(src) // 6TC
 			return
 
-		if("sabotage") // 40TC + three 0TC
+		if("sabotage") // 40TC + two 0TC
 			new /obj/item/camera_bug(src) // 1TC
 			new /obj/item/powersink(src) // 10TC
 			new /obj/item/cartridge/syndicate(src) // 6TC
 			new /obj/item/rcd/preloaded(src) // 0TC
 			new /obj/item/card/emag(src) // 6TC
-			new /obj/item/clothing/gloves/color/yellow(src) // 0TC
 			new /obj/item/grenade/syndieminibomb(src) // 6TC
 			new /obj/item/grenade/clusterbuster/n2o(src) // 4TC
 			new /obj/item/storage/box/syndie_kit/space(src) // 4TC
@@ -85,7 +83,7 @@
 			new /obj/item/encryptionkey/syndicate(src) // 2TC
 			return
 
-		if("hacker") // 37TC + one 0TC
+		if("hacker") // 39TC + one 0TC
 			new /obj/item/aiModule/syndicate(src) // 12TC
 			new /obj/item/card/emag(src) // 6TC
 			new /obj/item/encryptionkey/syndicate(src) // 2TC
@@ -94,8 +92,7 @@
 			new /obj/item/multitool/ai_detect(src) // 1TC
 			new /obj/item/flash/cameraflash(src) // 2TC
 			new /obj/item/clothing/glasses/chameleon/thermal(src) // 6TC
-			new /obj/item/storage/belt/military/traitor(src) // 2TC
-			new /obj/item/storage/toolbox/syndicate(src) // 1TC
+			new /obj/item/batterer(src) // 5TC
 			return
 
 		if("darklord") // 34TC + three 0TC
@@ -111,10 +108,9 @@
 			new /obj/item/t_scanner(src) // 0TC
 			return
 
-		if("professional") // 37 TC + two 0TC
+		if("professional") // 34 TC + two 0TC
 			new /obj/item/gun/projectile/automatic/sniper_rifle/syndicate/penetrator(src) // 16TC
 			new /obj/item/ammo_box/magazine/sniper_rounds/penetrator(src) // 5TC
-			new /obj/item/ammo_box/magazine/sniper_rounds/soporific(src) // 3TC
 			new /obj/item/clothing/glasses/chameleon/thermal(src) // 6TC
 			new /obj/item/clothing/gloves/combat(src) // 0 TC
 			new /obj/item/clothing/under/suit_jacket/really_black(src) // 0 TC
